@@ -1,0 +1,11 @@
+{
+    "name": "pshon/project-lvl1",
+    "description": "first project",
+    "authors": [
+        {
+            "name": "Danila Pshenichnyy",
+            "email": "dpshon93@gmail.com"
+        }
+    ],
+    "require": {}
+}
