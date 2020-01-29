@@ -1,14 +1,18 @@
 {
-    "name": "pshon/project-lvl1",
-    "description": "first project",
+    "name": "pshon/php-project-lvl1",
+    "autoload": {
+        "files": [
+            "src/Cli.php"
+        ]
+    },
+    "type": "project",
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.11"
+    },
     "authors": [
         {
             "name": "Danila Pshenichnyy",
             "email": "dpshon93@gmail.com"
         }
-    ],
-    "require": {},
-    "bin": [
-	"bin/brain-games"
-]
+    ]
 }
