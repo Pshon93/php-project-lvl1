@@ -6,7 +6,7 @@
         ]
     },
     "scripts": {
-    "phpcs": "./vendor/bin/phpcs -h"
+    "phpcs": "phpcs"
     },
     "type": "project",
     "require": {
