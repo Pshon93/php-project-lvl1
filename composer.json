@@ -2,7 +2,8 @@
     "name": "pshon/php-project-lvl1",
     "autoload": {
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Question.php"
         ]
     },
     "scripts": {
