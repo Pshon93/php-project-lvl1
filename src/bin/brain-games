@@ -1,5 +1,9 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
+
+/**
+ * @file description
+ */
 
 require __DIR__ . '/../../vendor/autoload.php';
 
