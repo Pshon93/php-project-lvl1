@@ -3,8 +3,7 @@
     "bin": ["bin/brain-even"],
     "autoload": {
         "files": [
-            "src/Cli.php",
-            "src/Question.php"
+            "src/Even.php"
         ]
     },
     "scripts": {

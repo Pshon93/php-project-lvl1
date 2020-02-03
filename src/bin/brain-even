@@ -16,7 +16,7 @@
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-use function BrainGames\Cli\run;
+use function BrainGames\BrainEven\run;
 
 run();
 echo '<!-- end list -->';
