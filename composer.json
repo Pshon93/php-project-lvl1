@@ -1,6 +1,6 @@
 {
     "name": "pshon/php-project-lvl1",
-    "bin": ["bin/brain-even"],
+    "bin": ["src/bin/brain-even"],
     "autoload": {
         "files": [
             "src/Even.php"
