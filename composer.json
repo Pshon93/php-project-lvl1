@@ -21,5 +21,6 @@
             "name": "Danila Pshenichnyy",
             "email": "dpshon93@gmail.com"
         }
-    ]
+    ],
+    "minimum-stability": "dev"
 }
