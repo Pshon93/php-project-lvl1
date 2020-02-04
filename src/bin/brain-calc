@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Template File Doc Comment
+ *
+ * PHP version 7
+ *  
+ * @file     description
+ * @category Project
+ * @package  Project
+ * @author   Pshenichnyy Danila <dpshon93@gmail.com>
+ * @license  MIT license
+ * @link     http://localhost/
+ */
+
+require __DIR__ . '/../../vendor/autoload.php';
+
+use function BrainGames\BrainCalc\run;
+
+run();
+echo '<!-- end list -->';

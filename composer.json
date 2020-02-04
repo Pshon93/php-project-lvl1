@@ -1,17 +1,22 @@
 {
     "name": "pshon/php-project-lvl1",
-    "bin": ["src/bin/brain-even"],
+    "description": "first project on Hexlet",
+    "bin": ["src/bin/brain-calc", 
+            "src/bin/brain-even"],
     "autoload": {
-        "files": [
-            "src/Even.php"
+        "files": [         
+            "src/games/Even.php", 
+            "src/games/Calc.php", 
+            "src/games/Logic.php"   
         ]
     },
+    "license": "proprietary",
     "scripts": {
     "phpcs": "phpcs"
     },
     "type": "project",
     "require": {
-        "wp-cli/php-cli-tools": "^0.11.11"
+        "wp-cli/php-cli-tools": "^0.11.10"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "3.*"
