@@ -36,15 +36,15 @@ function getQuestion($name, $methodCal)
             $mathOperator = $operators[$rand_key];
             $currentQuestion = $firstOperand . $mathOperator . $secondOperand;
             switch ($mathOperator) {
-            case '+':
-                $correctAnswer = $firstOperand + $secondOperand;
-                break;
-            case '-':
-                $correctAnswer = $firstOperand - $secondOperand;
-                break;
-            case '*':
-                $correctAnswer = $firstOperand * $secondOperand;
-                break;
+                case '+':
+                    $correctAnswer = $firstOperand + $secondOperand;
+                    break;
+                case '-':
+                    $correctAnswer = $firstOperand - $secondOperand;
+                    break;
+                case '*':
+                    $correctAnswer = $firstOperand * $secondOperand;
+                    break;
             }
         }
 
