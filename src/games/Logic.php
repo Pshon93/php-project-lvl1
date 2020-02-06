@@ -17,7 +17,7 @@ function greeting($methodCal)
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     getQuestion($name, $methodCal);
-    line("Congratulations, %s!", $name);  
+    line("Congratulations, %s!", $name);
 }
 
 function getQuestion($name, $methodCal)
@@ -28,7 +28,7 @@ function getQuestion($name, $methodCal)
     while ($numberOfAnswer < 3) {
         if ($methodCal === 'Even') {
             $currentQuestion = rand(0, $maxNumber);
-            $correctAnswer = ($currentQuestion % 2 === 0) ? 'yes': 'no';
+            $correctAnswer = ($currentQuestion % 2 === 0) ? 'yes' : 'no';
         } elseif ($methodCal === 'Calc') {
             $firstOperand = rand(0, $maxNumber);
             $secondOperand = rand(0, $maxNumber);
@@ -44,8 +44,8 @@ function getQuestion($name, $methodCal)
                 break;
             case '*':
                 $correctAnswer = $firstOperand * $secondOperand;
-                break;            
-            }        
+                break;
+            }
         }
 
         echo 'Question: ' . $currentQuestion, PHP_EOL;
@@ -59,7 +59,7 @@ function getQuestion($name, $methodCal)
             $numberOfAnswer = 0;
         }
     }
-}    
+}
 
 function getErrorMessage($name, $answer, $correctAnswer)
 {
