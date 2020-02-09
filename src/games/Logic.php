@@ -73,7 +73,7 @@ function getQuestion($name, $methodCal)
                     $currentQuestion .= '..' . ' ';
                 } else {
                     $currentQuestion .= ($firstMemberOfProgression + $i * $step) . ' ';
-                }                
+                }
             }
         }
 
