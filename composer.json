@@ -2,12 +2,14 @@
     "name": "pshon/php-project-lvl1",
     "description": "first project on Hexlet",
     "bin": ["src/bin/brain-calc", 
-            "src/bin/brain-even"],
+            "src/bin/brain-even",
+            "src/bin/brain-gcd"],
     "autoload": {
         "files": [         
             "src/games/Even.php", 
             "src/games/Calc.php", 
-            "src/games/Logic.php"   
+            "src/games/Logic.php",
+            "src/games/Gcd.php"   
         ]
     },
     "license": "proprietary",

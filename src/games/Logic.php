@@ -11,6 +11,8 @@ function greeting($methodCal)
         $str = 'Answer "yes" if the number is even, otherwise answer "no".';
     } elseif ($methodCal === 'Calc') {
         $str = 'What is the result of the expression?';
+    } elseif ($methodCal === 'Gcd') {
+        $str = 'Find the greatest common divisor of given numbers.';
     }
     line('Welcome to the Brain Game!');
     line($str);
@@ -46,6 +48,18 @@ function getQuestion($name, $methodCal)
                     $correctAnswer = $firstOperand * $secondOperand;
                     break;
             }
+        } elseif ($methodCal === 'Gcd') {
+            $firstOperand = rand(0, $maxNumber);
+            $secondOperand = rand(0, $maxNumber);
+            $currentQuestion = $firstOperand . ' ' . $secondOperand;
+            while ($firstOperand !== 0 & $secondOperand !== 0) {
+                if ($firstOperand > $secondOperand) {
+                    $firstOperand = $firstOperand % $secondOperand;
+                } else {
+                    $secondOperand = $secondOperand % $firstOperand;
+                }                
+            }
+            $correctAnswer = $firstOperand + $secondOperand;
         }
 
         echo 'Question: ' . $currentQuestion, PHP_EOL;
