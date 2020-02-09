@@ -12,4 +12,5 @@ Install
 Run
 1. Use the command "brain-even" to start the game "Even";
 2. Use the command "brain-calc" to start the game "Calc";
-3. Use the command "brain-gcd" to start the game "Gcd".
+3. Use the command "brain-gcd" to start the game "Gcd";
+4. Use the command "brain-progression" to start the game "Progression".

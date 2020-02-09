@@ -13,6 +13,8 @@ function greeting($methodCal)
         $str = 'What is the result of the expression?';
     } elseif ($methodCal === 'Gcd') {
         $str = 'Find the greatest common divisor of given numbers.';
+    } elseif ($methodCal === 'Progression') {
+        $str = 'What number is missing in the progression?';
     }
     line('Welcome to the Brain Game!');
     line($str);
@@ -25,7 +27,7 @@ function greeting($methodCal)
 function getQuestion($name, $methodCal)
 {
     $numberOfAnswer = 0;
-    $maxNumber = 10;
+    $maxNumber = 100;
     $operators = ['+', '-', '*'];
     while ($numberOfAnswer < 3) {
         if ($methodCal === 'Even') {
@@ -60,6 +62,19 @@ function getQuestion($name, $methodCal)
                 }
             }
             $correctAnswer = $firstOperand + $secondOperand;
+        } elseif ($methodCal === 'Progression') {
+            $firstMemberOfProgression = rand(0, $maxNumber);
+            $step = rand(1, 5);
+            $missingPosition = rand(0, 9);
+            $correctAnswer = $firstMemberOfProgression + $step * $missingPosition;
+            $currentQuestion = '';
+            for ($i = 0; $i < 10; $i++) {
+                if ($i === $missingPosition) {
+                    $currentQuestion .= '..' . ' ';
+                } else {
+                    $currentQuestion .= ($firstMemberOfProgression + $i * $step) . ' ';
+                }                
+            }
         }
 
         echo 'Question: ' . $currentQuestion, PHP_EOL;
