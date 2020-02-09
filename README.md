@@ -8,3 +8,8 @@
 Install
 1. php composer.phar global require "pshon/project-lvl1"
 2. make install
+
+Run
+1. Use the command "brain-even" to start the game "Even";
+2. Use the command "brain-calc" to start the game "Calc";
+3. Use the command "brain-gcd" to start the game "Gcd".
