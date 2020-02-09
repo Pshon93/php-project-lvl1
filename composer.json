@@ -4,14 +4,16 @@
     "bin": ["src/bin/brain-calc", 
             "src/bin/brain-even",
             "src/bin/brain-gcd",
-            "src/bin/brain-progression"],
+            "src/bin/brain-progression",
+            "src/bin/brain-prime"],
     "autoload": {
         "files": [         
             "src/games/Even.php", 
             "src/games/Calc.php", 
             "src/games/Logic.php",
             "src/games/Gcd.php",
-            "src/games/Progression.php"   
+            "src/games/Progression.php",
+            "src/games/Prime.php"   
         ]
     },
     "license": "proprietary",

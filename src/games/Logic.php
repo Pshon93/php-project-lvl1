@@ -15,6 +15,8 @@ function greeting($methodCal)
         $str = 'Find the greatest common divisor of given numbers.';
     } elseif ($methodCal === 'Progression') {
         $str = 'What number is missing in the progression?';
+    } elseif ($methodCal === 'Prime') {
+        $str = 'Answer "yes" if given number is prime, otherwise answer "no".';
     }
     line('Welcome to the Brain Game!');
     line($str);
@@ -73,6 +75,17 @@ function getQuestion($name, $methodCal)
                     $currentQuestion .= '..' . ' ';
                 } else {
                     $currentQuestion .= ($firstMemberOfProgression + $i * $step) . ' ';
+                }
+            }
+        } elseif ($methodCal === 'Prime') {
+            $currentQuestion = rand(2, $maxNumber);
+            $correctAnswer = 'yes';
+            for ($i = 2; $i < sqrt($currentQuestion); $i++) {
+                if ($currentQuestion % $i === 0) {
+                    $correctAnswer = 'no';
+                    break;
+                } else {
+                    $correctAnswer = 'yes';
                 }
             }
         }
