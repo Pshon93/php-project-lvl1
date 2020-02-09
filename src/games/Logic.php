@@ -57,7 +57,7 @@ function getQuestion($name, $methodCal)
                     $firstOperand = $firstOperand % $secondOperand;
                 } else {
                     $secondOperand = $secondOperand % $firstOperand;
-                }                
+                }
             }
             $correctAnswer = $firstOperand + $secondOperand;
         }
