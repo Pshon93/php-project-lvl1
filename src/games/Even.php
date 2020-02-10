@@ -4,9 +4,9 @@ namespace BrainGames\BrainEven;
 
 //use function cli\line;
 //use function cli\prompt;
-use function BrainGames\BrainLogic\greeting;
+use function BrainGames\BrainLogic\greet;
 
 function run()
 {
-    greeting('Even');
+    greet('Even');
 }

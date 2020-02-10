@@ -5,37 +5,38 @@ namespace BrainGames\BrainLogic;
 use function cli\line;
 use function cli\prompt;
 
-function greeting($methodCal)
+function greet($methodName)
 {
-    if ($methodCal === 'Even') {
+    if ($methodName === 'Even') {
         $str = 'Answer "yes" if the number is even, otherwise answer "no".';
-    } elseif ($methodCal === 'Calc') {
+    } elseif ($methodName === 'Calc') {
         $str = 'What is the result of the expression?';
-    } elseif ($methodCal === 'Gcd') {
+    } elseif ($methodName === 'Gcd') {
         $str = 'Find the greatest common divisor of given numbers.';
-    } elseif ($methodCal === 'Progression') {
+    } elseif ($methodName === 'Progression') {
         $str = 'What number is missing in the progression?';
-    } elseif ($methodCal === 'Prime') {
+    } elseif ($methodName === 'Prime') {
         $str = 'Answer "yes" if given number is prime, otherwise answer "no".';
     }
     line('Welcome to the Brain Game!');
     line($str);
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    getQuestion($name, $methodCal);
-    line("Congratulations, %s!", $name);
+    $nameOfGamer = prompt('May I have your name?');
+    line("Hello, %s!", $nameOfGamer);
+    getQuestion($nameOfGamer, $methodName);
+    line("Congratulations, %s!", $nameOfGamer);
 }
 
-function getQuestion($name, $methodCal)
+function getQuestion($nameOfGamer, $methodName)
 {
-    $numberOfAnswer = 0;
+    $answerCount = 0;
     $maxNumber = 100;
     $operators = ['+', '-', '*'];
-    while ($numberOfAnswer < 3) {
-        if ($methodCal === 'Even') {
+    $succesfullAttemptsCount = 3;
+    while ($answerCount < $succesfullAttemptsCount) {
+        if ($methodName === 'Even') {
             $currentQuestion = rand(0, $maxNumber);
             $correctAnswer = ($currentQuestion % 2 === 0) ? 'yes' : 'no';
-        } elseif ($methodCal === 'Calc') {
+        } elseif ($methodName === 'Calc') {
             $firstOperand = rand(0, $maxNumber);
             $secondOperand = rand(0, $maxNumber);
             $rand_key = array_rand($operators);
@@ -52,7 +53,7 @@ function getQuestion($name, $methodCal)
                     $correctAnswer = $firstOperand * $secondOperand;
                     break;
             }
-        } elseif ($methodCal === 'Gcd') {
+        } elseif ($methodName === 'Gcd') {
             $firstOperand = rand(0, $maxNumber);
             $secondOperand = rand(0, $maxNumber);
             $currentQuestion = $firstOperand . ' ' . $secondOperand;
@@ -64,20 +65,22 @@ function getQuestion($name, $methodCal)
                 }
             }
             $correctAnswer = $firstOperand + $secondOperand;
-        } elseif ($methodCal === 'Progression') {
+        } elseif ($methodName === 'Progression') {
             $firstMemberOfProgression = rand(0, $maxNumber);
-            $step = rand(1, 5);
-            $missingPosition = rand(0, 9);
-            $correctAnswer = $firstMemberOfProgression + $step * $missingPosition;
+            $maxStep = 5;
+            $lengthOfProgression = 10;
+            $currentStep = rand(1, $maxStep);
+            $missingPosition = rand(0, $lengthOfProgression - 1);
+            $correctAnswer = $firstMemberOfProgression + $currentStep * $missingPosition;
             $currentQuestion = '';
-            for ($i = 0; $i < 10; $i++) {
+            for ($i = 0; $i < $lengthOfProgression; $i++) {
                 if ($i === $missingPosition) {
                     $currentQuestion .= '..' . ' ';
                 } else {
-                    $currentQuestion .= ($firstMemberOfProgression + $i * $step) . ' ';
+                    $currentQuestion .= ($firstMemberOfProgression + $i * $currentStep) . ' ';
                 }
             }
-        } elseif ($methodCal === 'Prime') {
+        } elseif ($methodName === 'Prime') {
             $currentQuestion = rand(2, $maxNumber);
             $correctAnswer = 'yes';
             for ($i = 2; $i < sqrt($currentQuestion); $i++) {
@@ -94,19 +97,19 @@ function getQuestion($name, $methodCal)
         $answer = readline('Your answer: ');
 
         if ($answer == $correctAnswer) {
-            $numberOfAnswer += 1;
+            $answerCount += 1;
             echo 'Correct!', PHP_EOL;
         } else {
-            getErrorMessage($name, $answer, $correctAnswer);
-            $numberOfAnswer = 0;
+            getErrorMessage($nameOfGamer, $answer, $correctAnswer);
+            $answerCount = 0;
         }
     }
 }
 
-function getErrorMessage($name, $answer, $correctAnswer)
+function getErrorMessage($nameOfGamer, $answer, $correctAnswer)
 {
     print_r("'{$answer}' is wrong answer ;(. Correct answer was {$correctAnswer}");
     echo PHP_EOL;
-    print_r("Let's try again, {$name}.");
+    print_r("Let's try again, {$nameOfGamer}.");
     echo PHP_EOL;
 }
