@@ -11,15 +11,15 @@ use function BrainGames\BrainLogic\getQuestion;
 
 function run()
 {
-    $str = 'Welcome to the Brain Game!' . PHP_EOL . 'What is the result of the expression?';
+    $str = 'What is the result of the expression?';
     greet($str);
     $nameOfGamer = nameRequest();
-
+    $victoryCondition = 3;
     $answerCount = 0;
-    while ($answerCount < 3) {
+    while ($answerCount < $victoryCondition) {
         $maxNumber = 100;
         $operators = ['+', '-', '*'];
-        $succesfullAttemptsCount = 3;
+        //$succesfullAttemptsCount = 3;
         $firstOperand = rand(0, $maxNumber);
         $secondOperand = rand(0, $maxNumber);
         $rand_key = array_rand($operators);

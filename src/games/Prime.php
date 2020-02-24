@@ -11,13 +11,13 @@ use function BrainGames\BrainLogic\getQuestion;
 
 function run()
 {
-    $str = 'Welcome to the Brain Game!' . PHP_EOL . 'Answer "yes" if given number is prime, otherwise answer "no".';
+    $str = 'Answer "yes" if given number is prime, otherwise answer "no".';
     greet($str);
     $nameOfGamer = nameRequest();
-
+    $victoryCondition = 3;
     $answerCount = 0;
     $maxNumber = 100;
-    while ($answerCount < 3) {
+    while ($answerCount < $victoryCondition) {
         $currentQuestion = rand(2, $maxNumber);
         $correctAnswer = 'yes';
         for ($i = 2; $i < sqrt($currentQuestion); $i++) {

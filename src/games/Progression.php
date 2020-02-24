@@ -11,13 +11,13 @@ use function BrainGames\BrainLogic\getQuestion;
 
 function run()
 {
-    $str = 'Welcome to the Brain Game!' . PHP_EOL . 'What number is missing in the progression?';
+    $str = 'What number is missing in the progression?';
     greet($str);
     $nameOfGamer = nameRequest();
-
+    $victoryCondition = 3;
     $answerCount = 0;
     $maxNumber = 100;
-    while ($answerCount < 3) {
+    while ($answerCount < $victoryCondition) {
         $firstMemberOfProgression = rand(0, $maxNumber);
         $maxStep = 5;
         $lengthOfProgression = 10;

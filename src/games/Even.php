@@ -11,13 +11,13 @@ use function BrainGames\BrainLogic\getQuestion;
 
 function run()
 {
-    $str = 'Welcome to the Brain Game!' . PHP_EOL . 'Answer "yes" if the number is even, otherwise answer "no".';
+    $str = 'Answer "yes" if the number is even, otherwise answer "no".';
     greet($str);
     $nameOfGamer = nameRequest();
-
+    $victoryCondition = 3;
     $answerCount = 0;
     $maxNumber = 100;
-    while ($answerCount < 3) {
+    while ($answerCount < $victoryCondition) {
         $currentQuestion = rand(0, $maxNumber);
         $correctAnswer = ($currentQuestion % 2 === 0) ? 'yes' : 'no';
         getQuestion($currentQuestion, $correctAnswer, $nameOfGamer) ? ($answerCount += 1) : ($answerCount = 0);

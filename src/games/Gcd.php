@@ -11,13 +11,13 @@ use function BrainGames\BrainLogic\getQuestion;
 
 function run()
 {
-    $str = 'Welcome to the Brain Game!' . PHP_EOL . 'Find the greatest common divisor of given numbers.';
+    $str = 'Find the greatest common divisor of given numbers.';
     greet($str);
     $nameOfGamer = nameRequest();
-
+    $victoryCondition = 3;
     $answerCount = 0;
     $maxNumber = 100;
-    while ($answerCount < 3) {
+    while ($answerCount < $victoryCondition) {
         $firstOperand = rand(0, $maxNumber);
         $secondOperand = rand(0, $maxNumber);
         $currentQuestion = $firstOperand . ' ' . $secondOperand;

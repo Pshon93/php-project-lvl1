@@ -7,6 +7,7 @@ use function cli\prompt;
 
 function greet($str)
 {
+    line('Welcome to the Brain Game!');
     line($str);
 }
 
