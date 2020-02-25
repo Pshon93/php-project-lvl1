@@ -39,7 +39,6 @@ function getQuestion($questions)
         }
     }
     ($numberOfCorrectAnswer == $victoryCondition) ? congratulations($nameOfGamer) : print_r("You lose");
-    
 }
 
 function getErrorMessage($nameOfGamer, $answer, $correctAnswer)
