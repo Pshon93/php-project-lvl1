@@ -13,13 +13,12 @@ function run()
 {
     $str = 'What is the result of the expression?';
     greet($str);
-    $nameOfGamer = nameRequest();
+    $questions = [];
     $victoryCondition = 3;
     $answerCount = 0;
     while ($answerCount < $victoryCondition) {
         $maxNumber = 100;
         $operators = ['+', '-', '*'];
-        //$succesfullAttemptsCount = 3;
         $firstOperand = rand(0, $maxNumber);
         $secondOperand = rand(0, $maxNumber);
         $rand_key = array_rand($operators);
@@ -36,7 +35,8 @@ function run()
                 $correctAnswer = $firstOperand * $secondOperand;
                 break;
         }
-        getQuestion($currentQuestion, $correctAnswer, $nameOfGamer) ? ($answerCount += 1) : ($answerCount = 0);
+        $questions[] = ['Question' => $currentQuestion, 'CorrectAnswer' => $correctAnswer];
+        $answerCount += 1;
     }
-    congratulations($nameOfGamer);
+    getQuestion($questions);
 }

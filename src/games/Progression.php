@@ -13,7 +13,7 @@ function run()
 {
     $str = 'What number is missing in the progression?';
     greet($str);
-    $nameOfGamer = nameRequest();
+    $questions = [];
     $victoryCondition = 3;
     $answerCount = 0;
     $maxNumber = 100;
@@ -32,7 +32,8 @@ function run()
                 $currentQuestion .= ($firstMemberOfProgression + $i * $currentStep) . ' ';
             }
         }
-        getQuestion($currentQuestion, $correctAnswer, $nameOfGamer) ? ($answerCount += 1) : ($answerCount = 0);
+        $questions[] = ['Question' => $currentQuestion, 'CorrectAnswer' => $correctAnswer];
+        $answerCount += 1;
     }
-    congratulations($nameOfGamer);
+    getQuestion($questions);
 }

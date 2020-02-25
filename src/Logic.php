@@ -23,17 +23,23 @@ function nameRequest()
     return $nameOfGamer;
 }
 
-function getQuestion($currentQuestion, $correctAnswer, $nameOfGamer)
+function getQuestion($questions)
 {
-    echo 'Question: ' . $currentQuestion, PHP_EOL;
-    $answer = readline('Your answer: ');
-    if ($answer == $correctAnswer) {
-        echo 'Correct!', PHP_EOL;
-        return true;
-    } else {
-        getErrorMessage($nameOfGamer, $answer, $correctAnswer);
-        return false;
+    $nameOfGamer = nameRequest();
+    $victoryCondition = count($questions);
+    $numberOfCorrectAnswer = 0;
+    foreach ($questions as $question) {
+        echo 'Question: ' . $question['Question'], PHP_EOL;
+        $answer = readline('Your answer: ');
+        if ($answer == $question['CorrectAnswer']) {
+            echo 'Correct!', PHP_EOL;
+            $numberOfCorrectAnswer += 1;
+        } else {
+            getErrorMessage($nameOfGamer, $answer, $question['CorrectAnswer']);
+        }
     }
+    ($numberOfCorrectAnswer == $victoryCondition) ? congratulations($nameOfGamer) : print_r("You lose");
+    
 }
 
 function getErrorMessage($nameOfGamer, $answer, $correctAnswer)
