@@ -36,6 +36,7 @@ function getQuestion($questions)
             $numberOfCorrectAnswer += 1;
         } else {
             getErrorMessage($nameOfGamer, $answer, $question['CorrectAnswer']);
+            break;
         }
     }
     ($numberOfCorrectAnswer == $victoryCondition) ? congratulations($nameOfGamer) : print_r("You lose");
