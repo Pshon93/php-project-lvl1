@@ -31,5 +31,5 @@ function gcd(&$firstOperand, &$secondOperand)
         } else {
             $secondOperand = $secondOperand % $firstOperand;
         }
-    } 
+    }
 }
