@@ -1,10 +1,10 @@
 {
     "name": "pshon/php-project-lvl1",
-    "bin": ["src/bin/brain-calc", 
-            "src/bin/brain-even",
-            "src/bin/brain-gcd",
-            "src/bin/brain-progression",
-            "src/bin/brain-prime"],
+    "bin": ["bin/brain-calc", 
+            "bin/brain-even",
+            "bin/brain-gcd",
+            "bin/brain-progression",
+            "bin/brain-prime"],
     "type": "project",
     "keywords": ["brain-games", "hexlet", "games"],
     "authors": [

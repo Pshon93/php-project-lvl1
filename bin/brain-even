@@ -14,7 +14,7 @@
  * @link     http://localhost/
  */
 
-require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use function BrainGames\BrainEven\run;
 

@@ -2,17 +2,11 @@
 
 namespace BrainGames\BrainCalc;
 
-//use function cli\line;
-//use function cli\prompt;
-use function BrainGames\BrainLogic\greet;
-use function BrainGames\BrainLogic\nameRequest;
-use function BrainGames\BrainLogic\congratulations;
-use function BrainGames\BrainLogic\getQuestion;
+use function Logic\getQuestion;
 
 function run()
 {
     $str = 'What is the result of the expression?';
-    greet($str);
     $questions = [];
     $victoryCondition = 3;
     $answerCount = 0;
@@ -38,5 +32,5 @@ function run()
         $questions[] = ['Question' => $currentQuestion, 'CorrectAnswer' => $correctAnswer];
         $answerCount += 1;
     }
-    getQuestion($questions);
+    getQuestion($questions, $str);
 }

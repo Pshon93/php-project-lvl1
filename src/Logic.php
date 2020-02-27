@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\BrainLogic;
+namespace Logic;
 
 use function cli\line;
 use function cli\prompt;
@@ -23,8 +23,9 @@ function nameRequest()
     return $nameOfGamer;
 }
 
-function getQuestion($questions)
+function getQuestion($questions, $rules)
 {
+    greet($rules);
     $nameOfGamer = nameRequest();
     $victoryCondition = count($questions);
     $numberOfCorrectAnswer = 0;

@@ -14,9 +14,9 @@
  * @link     http://localhost/
  */
 
-require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-use function BrainGames\BrainCalc\run;
+use function BrainGames\BrainPrime\run;
 
 run();
 
