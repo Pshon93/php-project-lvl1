@@ -5,10 +5,10 @@ namespace Logic;
 use function cli\line;
 use function cli\prompt;
 
-function greet($str)
+function greet($gameCondition)
 {
     line('Welcome to the Brain Game!');
-    line($str);
+    line($gameCondition);
 }
 
 function congratulations($nameOfGamer)
@@ -19,34 +19,37 @@ function congratulations($nameOfGamer)
 function nameRequest()
 {
     $nameOfGamer = prompt('May I have your name?');
-    line("Hello, %s!", $nameOfGamer);
     return $nameOfGamer;
 }
 
-function getQuestion($questions, $rules)
+function greetPerson($nameOfGamer)
+{
+    line("Hello, %s!", $nameOfGamer);
+}
+
+function getQuestion($questionsAndAnswers, $rules)
 {
     greet($rules);
     $nameOfGamer = nameRequest();
-    $victoryCondition = count($questions);
+    greetPerson($nameOfGamer);
+    $victoryCondition = count($questionsAndAnswers);
     $numberOfCorrectAnswer = 0;
-    foreach ($questions as $question) {
-        echo 'Question: ' . $question['Question'], PHP_EOL;
+    foreach ($questionsAndAnswers as $question) {
+        echo 'Question: ' . $question['question'], PHP_EOL;
         $answer = readline('Your answer: ');
-        if ($answer == $question['CorrectAnswer']) {
+        if ($answer == $question['correctAnswer']) {
             echo 'Correct!', PHP_EOL;
-            $numberOfCorrectAnswer += 1;
         } else {
-            getErrorMessage($nameOfGamer, $answer, $question['CorrectAnswer']);
-            break;
+            print_r("'{$answer}' is wrong answer ;(. Correct answer was {$question['correctAnswer']}" . PHP_EOL);
+            print_r("Let's try again, {$nameOfGamer}." . PHP_EOL);
+            return print_r("You lose");
         }
     }
-    ($numberOfCorrectAnswer == $victoryCondition) ? congratulations($nameOfGamer) : print_r("You lose");
+    return congratulations($nameOfGamer);
 }
 
-function getErrorMessage($nameOfGamer, $answer, $correctAnswer)
+function getNumberOfRounds()
 {
-    print_r("'{$answer}' is wrong answer ;(. Correct answer was {$correctAnswer}");
-    echo PHP_EOL;
-    print_r("Let's try again, {$nameOfGamer}.");
-    echo PHP_EOL;
+    $numberOfRounds = 3;
+    return $numberOfRounds;
 }

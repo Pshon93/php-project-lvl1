@@ -3,27 +3,31 @@
 namespace BrainGames\BrainPrime;
 
 use function Logic\getQuestion;
+use function Logic\getNumberOfRounds;
 
 function run()
 {
-    $str = 'Answer "yes" if given number is prime, otherwise answer "no".';
-    $questions = [];
-    $victoryCondition = 3;
+    $gameCondition = 'Answer "yes" if given number is prime, otherwise answer "no".';
+    $questionsAndAnswers = [];
     $answerCount = 0;
     $maxNumber = 100;
-    while ($answerCount < $victoryCondition) {
+    for ($i = 0; $i < getNumberOfRounds(); $i++) {
         $currentQuestion = rand(2, $maxNumber);
-        $correctAnswer = 'yes';
-        for ($i = 2; $i < sqrt($currentQuestion); $i++) {
-            if ($currentQuestion % $i === 0) {
-                $correctAnswer = 'no';
-                break;
-            } else {
-                $correctAnswer = 'yes';
-            }
-        }
-        $questions[] = ['Question' => $currentQuestion, 'CorrectAnswer' => $correctAnswer];
-        $answerCount += 1;
+        $correctAnswer = isPrime($currentQuestion) ? 'yes' : 'no';
+        $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
-    getQuestion($questions, $str);
+    getQuestion($questionsAndAnswers, $gameCondition);
+}
+
+function isPrime($number)
+{
+    for ($j = 2; $j < sqrt($number); $j++) {
+        if ($number % $j === 0) {
+            $result = false;
+            return $result;
+        } else {
+            $result = true;
+        }
+    }
+    return $result;
 }

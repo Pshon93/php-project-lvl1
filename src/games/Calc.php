@@ -3,14 +3,14 @@
 namespace BrainGames\BrainCalc;
 
 use function Logic\getQuestion;
+use function Logic\getNumberOfRounds;
 
 function run()
 {
-    $str = 'What is the result of the expression?';
-    $questions = [];
-    $victoryCondition = 3;
+    $gameCondition = 'What is the result of the expression?';
+    $questionsAndAnswers = [];
     $answerCount = 0;
-    while ($answerCount < $victoryCondition) {
+    for ($i = 0; $i < getNumberOfRounds(); $i++) {
         $maxNumber = 100;
         $operators = ['+', '-', '*'];
         $firstOperand = rand(0, $maxNumber);
@@ -29,8 +29,7 @@ function run()
                 $correctAnswer = $firstOperand * $secondOperand;
                 break;
         }
-        $questions[] = ['Question' => $currentQuestion, 'CorrectAnswer' => $correctAnswer];
-        $answerCount += 1;
+        $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
-    getQuestion($questions, $str);
+    getQuestion($questionsAndAnswers, $gameCondition);
 }

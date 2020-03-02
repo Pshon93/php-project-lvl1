@@ -3,24 +3,23 @@
 namespace BrainGames\BrainGcd;
 
 use function Logic\getQuestion;
+use function Logic\getNumberOfRounds;
 
 function run()
 {
-    $str = 'Find the greatest common divisor of given numbers.';
-    $questions = [];
-    $victoryCondition = 3;
+    $gameCondition = 'Find the greatest common divisor of given numbers.';
+    $questionsAndAnswers = [];
     $answerCount = 0;
     $maxNumber = 100;
-    while ($answerCount < $victoryCondition) {
+    for ($i = 0; $i < getNumberOfRounds(); $i++) {
         $firstOperand = rand(0, $maxNumber);
         $secondOperand = rand(0, $maxNumber);
         $currentQuestion = "$firstOperand $secondOperand";
         gcd($firstOperand, $secondOperand);
         $correctAnswer =  $firstOperand + $secondOperand;
-        $questions[] = ['Question' => $currentQuestion, 'CorrectAnswer' => $correctAnswer];
-        $answerCount += 1;
+        $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
-    getQuestion($questions, $str);
+    getQuestion($questionsAndAnswers, $gameCondition);
 }
 
 function gcd(&$firstOperand, &$secondOperand)

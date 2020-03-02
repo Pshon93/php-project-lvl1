@@ -3,15 +3,15 @@
 namespace BrainGames\BrainProgression;
 
 use function Logic\getQuestion;
+use function Logic\getNumberOfRounds;
 
 function run()
 {
-    $str = 'What number is missing in the progression?';
-    $questions = [];
-    $victoryCondition = 3;
+    $gameCondition = 'What number is missing in the progression?';
+    $questionsAndAnswers = [];
     $answerCount = 0;
     $maxNumber = 100;
-    while ($answerCount < $victoryCondition) {
+    for ($i = 0; $i < getNumberOfRounds(); $i++) {
         $firstMemberOfProgression = rand(0, $maxNumber);
         $maxStep = 5;
         $lengthOfProgression = 10;
@@ -19,16 +19,16 @@ function run()
         $missingPosition = rand(0, $lengthOfProgression - 1);
         $correctAnswer = $firstMemberOfProgression + $currentStep * $missingPosition;
         $currentQuestion = '';
-        for ($i = 0; $i < $lengthOfProgression; $i++) {
-            if ($i === $missingPosition) {
-                $currentQuestion .= '.. ';
+        for ($j = 0; $j < $lengthOfProgression; $j++) {
+            if ($j === $missingPosition) {
+                $currentQuestion = "$currentQuestion .. ";
             } else {
-                $currentMemember = $firstMemberOfProgression + $i * $currentStep;
-                $currentQuestion .= "$currentMemember ";
+                $currentMemember = $firstMemberOfProgression + $j * $currentStep;
+                $currentQuestion = "$currentQuestion $currentMemember ";
             }
         }
-        $questions[] = ['Question' => $currentQuestion, 'CorrectAnswer' => $correctAnswer];
-        $answerCount += 1;
+        $currentQuestion = trim($currentQuestion);
+        $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
-    getQuestion($questions, $str);
+    getQuestion($questionsAndAnswers, $gameCondition);
 }
