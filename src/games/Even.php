@@ -2,8 +2,9 @@
 
 namespace BrainGames\BrainEven;
 
-use function Logic\getQuestion;
 use Logic\NUMBER_OF_ROUNDS;
+
+use function Logic\getQuestion;
 
 function run()
 {

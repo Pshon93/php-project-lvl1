@@ -2,8 +2,9 @@
 
 namespace BrainGames\BrainGcd;
 
-use function Logic\getQuestion;
 use Logic\NUMBER_OF_ROUNDS;
+
+use function Logic\getQuestion;
 
 function run()
 {
@@ -14,7 +15,7 @@ function run()
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $firstOperand = rand(0, $maxNumber);
         $secondOperand = rand(0, $maxNumber);
-        $currentQuestion = "$firstOperand $secondOperand";    
+        $currentQuestion = "$firstOperand $secondOperand";
         $correctAnswer = gcd($firstOperand, $secondOperand);
         $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
