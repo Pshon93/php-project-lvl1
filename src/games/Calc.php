@@ -3,21 +3,20 @@
 namespace BrainGames\BrainCalc;
 
 use function Logic\getQuestion;
-use function Logic\getNumberOfRounds;
+use Logic\NUMBER_OF_ROUNDS;
 
 function run()
 {
     $gameCondition = 'What is the result of the expression?';
     $questionsAndAnswers = [];
-    $answerCount = 0;
-    for ($i = 0; $i < getNumberOfRounds(); $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $maxNumber = 100;
         $operators = ['+', '-', '*'];
         $firstOperand = rand(0, $maxNumber);
         $secondOperand = rand(0, $maxNumber);
         $rand_key = array_rand($operators);
         $mathOperator = $operators[$rand_key];
-        $currentQuestion = $firstOperand . $mathOperator . $secondOperand;
+        $currentQuestion = "$firstOperand $mathOperator $secondOperand";
         switch ($mathOperator) {
             case '+':
                 $correctAnswer = $firstOperand + $secondOperand;

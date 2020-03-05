@@ -3,7 +3,7 @@
 namespace BrainGames\BrainGcd;
 
 use function Logic\getQuestion;
-use function Logic\getNumberOfRounds;
+use Logic\NUMBER_OF_ROUNDS;
 
 function run()
 {
@@ -11,18 +11,17 @@ function run()
     $questionsAndAnswers = [];
     $answerCount = 0;
     $maxNumber = 100;
-    for ($i = 0; $i < getNumberOfRounds(); $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $firstOperand = rand(0, $maxNumber);
         $secondOperand = rand(0, $maxNumber);
-        $currentQuestion = "$firstOperand $secondOperand";
-        gcd($firstOperand, $secondOperand);
-        $correctAnswer =  $firstOperand + $secondOperand;
+        $currentQuestion = "$firstOperand $secondOperand";    
+        $correctAnswer = gcd($firstOperand, $secondOperand);
         $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
     getQuestion($questionsAndAnswers, $gameCondition);
 }
 
-function gcd(&$firstOperand, &$secondOperand)
+function gcd($firstOperand, $secondOperand)
 {
     while ($firstOperand !== 0 & $secondOperand !== 0) {
         if ($firstOperand > $secondOperand) {
@@ -31,4 +30,5 @@ function gcd(&$firstOperand, &$secondOperand)
             $secondOperand = $secondOperand % $firstOperand;
         }
     }
+    return $firstOperand + $secondOperand;
 }

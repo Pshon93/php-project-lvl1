@@ -3,7 +3,7 @@
 namespace BrainGames\BrainProgression;
 
 use function Logic\getQuestion;
-use function Logic\getNumberOfRounds;
+use Logic\NUMBER_OF_ROUNDS;
 
 function run()
 {
@@ -11,7 +11,7 @@ function run()
     $questionsAndAnswers = [];
     $answerCount = 0;
     $maxNumber = 100;
-    for ($i = 0; $i < getNumberOfRounds(); $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $firstMemberOfProgression = rand(0, $maxNumber);
         $maxStep = 5;
         $lengthOfProgression = 10;
@@ -27,8 +27,7 @@ function run()
                 $currentQuestion = "$currentQuestion $currentMemember ";
             }
         }
-        $currentQuestion = trim($currentQuestion);
-        $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
+        $questionsAndAnswers[] = ['question' => trim($currentQuestion), 'correctAnswer' => $correctAnswer];
     }
     getQuestion($questionsAndAnswers, $gameCondition);
 }

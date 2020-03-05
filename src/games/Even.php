@@ -3,7 +3,7 @@
 namespace BrainGames\BrainEven;
 
 use function Logic\getQuestion;
-use function Logic\getNumberOfRounds;
+use Logic\NUMBER_OF_ROUNDS;
 
 function run()
 {
@@ -11,7 +11,7 @@ function run()
     $questionsAndAnswers = [];
     $answerCount = 0;
     $maxNumber = 100;
-    for ($i = 1; $i < getNumberOfRounds(); $i++) {
+    for ($i = 1; $i < NUMBER_OF_ROUNDS; $i++) {
         $currentQuestion = rand(0, $maxNumber);
         $correctAnswer = ($currentQuestion % 2 === 0) ? 'yes' : 'no';
         $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];

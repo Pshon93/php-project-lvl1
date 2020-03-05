@@ -3,7 +3,7 @@
 namespace BrainGames\BrainPrime;
 
 use function Logic\getQuestion;
-use function Logic\getNumberOfRounds;
+use Logic\NUMBER_OF_ROUNDS;
 
 function run()
 {
@@ -11,7 +11,7 @@ function run()
     $questionsAndAnswers = [];
     $answerCount = 0;
     $maxNumber = 100;
-    for ($i = 0; $i < getNumberOfRounds(); $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $currentQuestion = rand(2, $maxNumber);
         $correctAnswer = isPrime($currentQuestion) ? 'yes' : 'no';
         $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
