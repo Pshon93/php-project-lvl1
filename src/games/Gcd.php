@@ -10,7 +10,6 @@ function run()
 {
     $gameCondition = 'Find the greatest common divisor of given numbers.';
     $questionsAndAnswers = [];
-    $answerCount = 0;
     $maxNumber = 100;
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $firstOperand = rand(0, $maxNumber);

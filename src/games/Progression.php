@@ -10,7 +10,6 @@ function run()
 {
     $gameCondition = 'What number is missing in the progression?';
     $questionsAndAnswers = [];
-    $answerCount = 0;
     $maxNumber = 100;
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $firstMemberOfProgression = rand(0, $maxNumber);

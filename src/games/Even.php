@@ -10,7 +10,6 @@ function run()
 {
     $gameCondition = 'Answer "yes" if the number is even, otherwise answer "no".';
     $questionsAndAnswers = [];
-    $answerCount = 0;
     $maxNumber = 100;
     for ($i = 1; $i < NUMBER_OF_ROUNDS; $i++) {
         $currentQuestion = rand(0, $maxNumber);
