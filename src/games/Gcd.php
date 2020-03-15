@@ -1,10 +1,10 @@
 <?php
 
-namespace BrainGames\BrainGcd;
+namespace BrainGames\src\games\BrainGcd;
 
-use Logic\NUMBER_OF_ROUNDS;
+use BrainGames\src\Logic\NUMBER_OF_ROUNDS;
 
-use function Logic\getQuestion;
+use function BrainGames\src\Logic\playGame;
 
 function run()
 {
@@ -18,7 +18,7 @@ function run()
         $correctAnswer = gcd($firstOperand, $secondOperand);
         $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
-    getQuestion($questionsAndAnswers, $gameCondition);
+    playGame($questionsAndAnswers, $gameCondition);
 }
 
 function gcd($firstOperand, $secondOperand)

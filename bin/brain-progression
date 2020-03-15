@@ -1,7 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-use function BrainGames\BrainProgression\run;
+namespace BrainGames\bin\BrainProgression;
+
+use function BrainGames\src\games\BrainProgression\run;
 /**
  * Template File Doc Comment
  *

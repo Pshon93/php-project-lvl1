@@ -1,7 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-use function BrainGames\BrainGcd\run;
+namespace BrainGames\bin\BrainGcd;
+
+use function BrainGames\src\games\BrainGcd\run;
 /**
  * Template File Doc Comment
  *

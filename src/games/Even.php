@@ -1,20 +1,20 @@
 <?php
 
-namespace BrainGames\BrainEven;
+namespace BrainGames\src\games\BrainEven;
 
-use Logic\NUMBER_OF_ROUNDS;
+use BrainGames\src\Logic\NUMBER_OF_ROUNDS;
 
-use function Logic\getQuestion;
+use function BrainGames\src\Logic\playGame;
 
 function run()
 {
     $gameCondition = 'Answer "yes" if the number is even, otherwise answer "no".';
     $questionsAndAnswers = [];
     $maxNumber = 100;
-    for ($i = 1; $i < NUMBER_OF_ROUNDS; $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $currentQuestion = rand(0, $maxNumber);
         $correctAnswer = ($currentQuestion % 2 === 0) ? 'yes' : 'no';
         $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
-    getQuestion($questionsAndAnswers, $gameCondition);
+    playGame($questionsAndAnswers, $gameCondition);
 }

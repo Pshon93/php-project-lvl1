@@ -1,33 +1,33 @@
 <?php
 
-namespace BrainGames\BrainPrime;
+namespace BrainGames\src\games\BrainPrime;
 
-use Logic\NUMBER_OF_ROUNDS;
+use BrainGames\src\Logic\NUMBER_OF_ROUNDS;
 
-use function Logic\getQuestion;
+use function BrainGames\src\Logic\playGame;
 
 function run()
 {
     $gameCondition = 'Answer "yes" if given number is prime, otherwise answer "no".';
     $questionsAndAnswers = [];
-    $maxNumber = 100;
+    $maxNumber = 9;
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
-        $currentQuestion = rand(2, $maxNumber);
+        $currentQuestion = rand(-$maxNumber, $maxNumber);
         $correctAnswer = isPrime($currentQuestion) ? 'yes' : 'no';
         $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
-    getQuestion($questionsAndAnswers, $gameCondition);
+    playGame($questionsAndAnswers, $gameCondition);
 }
 
 function isPrime($number)
 {
-    for ($j = 2; $j < $number; $j++) {
+    if ($number < 2) {
+        return false;
+    }
+    for ($j = 2; $j <= sqrt($number); $j++) {
         if ($number % $j === 0) {
-            $result = false;
-            return $result;
-        } else {
-            $result = true;
+            return false;
         }
     }
-    return $result;
+    return true;
 }

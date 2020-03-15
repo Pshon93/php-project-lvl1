@@ -1,11 +1,11 @@
 <?php
 
-namespace Logic;
+namespace BrainGames\src\Logic;
 
 use function cli\line;
 use function cli\prompt;
 
-function getQuestion($questionsAndAnswers, $description)
+function playGame($questionsAndAnswers, $description)
 {
     line('Welcome to the Brain Game!');
     line($description);

@@ -1,10 +1,10 @@
 <?php
 
-namespace BrainGames\BrainCalc;
+namespace BrainGames\src\games\BrainCalc;
 
-use Logic\NUMBER_OF_ROUNDS;
+use BrainGames\src\Logic\NUMBER_OF_ROUNDS;
 
-use function Logic\getQuestion;
+use function BrainGames\src\Logic\playGame;
 
 function run()
 {
@@ -31,5 +31,5 @@ function run()
         }
         $questionsAndAnswers[] = ['question' => $currentQuestion, 'correctAnswer' => $correctAnswer];
     }
-    getQuestion($questionsAndAnswers, $gameCondition);
+    playGame($questionsAndAnswers, $gameCondition);
 }
