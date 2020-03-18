@@ -19,10 +19,12 @@ function playGame($questionsAndAnswers, $description)
         } else {
             line("'%s' is wrong answer ;(. Correct answer was '%s'", $answer, $question['correctAnswer']);
             line("Let's try again, %s", $nameOfGamer);
-            return line("You lose");
+            line("You lose");
+            return true;
         }
     }
-    return line("Congratulations, %s!", $nameOfGamer);
+    line("Congratulations, %s!", $nameOfGamer);
+    return true;
 }
 
 define('NUMBER_OF_ROUNDS', 3);
